@@ -11,16 +11,19 @@
   <!-- New member form -->
   <h2>Ajouter un(e) Argonaute</h2>
     <%= simple_form_for @argonaute do |f| %>
-        <%= f.input :name, required: true  %>
-        <%= f.submit "Créer" %>
+        <%= f.label :name, label: 'Nom'  %>
+        <%= f.input :name, required: false, label: false  %>
+        <div class="d-flex justify-content-center">
+        <%= f.submit "Créer", class:'btn btn-dark' %>
+        </div>
     <% end %>
   <!-- Member list -->
-  <h2>Membres de l'équipage</h2>
+  <h2 class='mt-5'>Membres de l'équipage</h2>
   <% if @argonautes.present? %>
     <div class="container d-flex justify-content-center">
         <div class="row">
             <% @argonautes.each do |argonaute|%>
-                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-center mt-3"><%= argonaute.name %></div>
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4 text-center mt-5"><%= argonaute.name %></div>
             <% end %>
         </div>
     </div>
